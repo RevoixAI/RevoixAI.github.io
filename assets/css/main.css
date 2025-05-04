@@ -25,11 +25,13 @@
     --accent-color: #ef6603; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
     --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+    --wave-base: #ffffff; /* light theme wave base */
+    --base-color: #000000; /* light theme header heading and footer header */
   }
   
   /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
   :root {
-    --nav-color: #ffffff;  /* The default color of the main navmenu links */
+    --nav-color: #000000;  /* The default color of the main navmenu links */
     --nav-hover-color: #ef6603; /* Applied to main navmenu links when they are hovered over or active */
     --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
     --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
@@ -45,9 +47,8 @@
   }
   
   .dark-background {
-    --background-color: #2a2c39;
-    --default-color: #ffffff;
-    --heading-color: #ffffff;
+    --background-color: #585858;
+    --heading-color: var(--hero-text);
     --surface-color: #404356;
     --contrast-color: #ffffff;
   }
@@ -57,6 +58,23 @@
     scroll-behavior: smooth;
   }
   
+  .dark {
+    --background-color: #000000;
+    --default-color: #ffffff;
+    --text-color: #ffffff;
+    --heading-color: #cacaca;
+    --accent-color: #0dcaf0;
+    --surface-color: #1b1b1b;
+    --contrast-color: #272727;
+
+    --wave-base: #000000; /* dark theme wave base */
+    --base-color: #ffffff; /* dark theme header heading and footer header */
+    
+    --nav-color: #ffffff;
+    --nav-hover-color: #0dcaf0;
+    --nav-mobile-background-color: #4e4e4e;
+  }
+
   /*--------------------------------------------------------------
   # General Styling & Shared Classes
   --------------------------------------------------------------*/
@@ -143,8 +161,6 @@
   # Global Header
   --------------------------------------------------------------*/
   .header {
-    --background-color: rgba(255, 255, 255, 0);
-    --heading-color: #ffffff;
     color: var(--default-color);
     background-color: var(--background-color);
     padding: 20px 0;
@@ -419,7 +435,7 @@
   # Global Footer
   --------------------------------------------------------------*/
   .footer {
-    color: var(--default-color);
+    color: var(--base-color);
     background-color: var(--background-color);
     font-size: 14px;
     text-align: center;
@@ -469,7 +485,7 @@
   
   .footer .copyright {
     padding-top: 25px;
-    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-top: 1px solid color-mix(in srgb, var(--base-color), transparent 90%);
   }
   
   .footer .credits {
@@ -705,7 +721,7 @@
   }
   
   .hero {
-    color: var(--default-color);
+    color: var(--base-color);
   }
   
   .hero .carousel-container {
@@ -760,7 +776,7 @@
     line-height: 1;
     margin: 10px;
     animation-delay: 0.8s;
-    color: var(--default-color);
+    color: var(--base-color);
     border: 2px solid var(--accent-color);
   }
   
@@ -801,21 +817,21 @@
   .hero .wave1 use {
     animation: move-forever1 10s linear infinite;
     animation-delay: -2s;
-    fill: var(--default-color);
+    fill: var(--wave-base);
     opacity: 0.6;
   }
   
   .hero .wave2 use {
     animation: move-forever2 8s linear infinite;
     animation-delay: -2s;
-    fill: var(--default-color);
+    fill: var(--wave-base);
     opacity: 0.4;
   }
   
   .hero .wave3 use {
     animation: move-forever3 6s linear infinite;
     animation-delay: -2s;
-    fill: var(--default-color);
+    fill: var(--wave-base);
   }
   
   @keyframes move-forever1 {
@@ -898,6 +914,12 @@
     transform: translate(5px, 0);
   }
   
+  .about .section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
   /*--------------------------------------------------------------
   # features Section
   --------------------------------------------------------------*/
