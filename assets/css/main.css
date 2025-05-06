@@ -585,7 +585,7 @@
   # Global Page Titles & Breadcrumbs
   --------------------------------------------------------------*/
   .page-title {
-    color: var(--default-color);
+    color: var(--base-color);
     background-color: var(--background-color);
     background-size: cover;
     background-position: center;
