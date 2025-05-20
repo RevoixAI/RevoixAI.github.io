@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>RevoixAI – Your Voice, Reimagined</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Revoix<span class="text-blue-600 dark:text-blue-400">AI</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#" onclick="event.preventDefault(); showAuthModal();">Login/Register</a></li>
+          <li><button id="toggleTheme" class="theme-toggle-btn">🌙</button></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container position-relative">
+        <h1>Get-Started</h1>
+        <p>Revoix Studio – Instantly clone your voice and generate speech with AI.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Studio</li>
+          </ol>
+        </nav>
+      </div>
+    <!-- Particle Background -->
+    <div id="tsparticles" class="tsparticles-container"></div>
+    </div><!-- End Page Title -->
+
+    <!-- Main Section -->
+    <section id="starter-section" class="starter-section section">
+
+      <div class="container" data-aos="fade-up">     
+        <div class="studio-box-container">
+            <div class="studio-box">
+
+                <h1>Revoix Studio</h1>
+                <p>Clone your voice and generate AI speech instantly</p>
+            
+                <label>Upload Audio Sample</label>
+                <input type="file" id="audio-upload" accept="audio/*">
+            
+                <label>Or Record Audio</label>
+                <div class="btn-group">
+                  <button onclick="startRecording()" class="theme-toggle-btn">🎙 Start</button>
+                  <button onclick="stopRecording()" class="theme-toggle-btn">⏹ Stop</button>
+                </div>
+            
+                <label for="text-input">Text to Convert</label>
+                <textarea id="text-input" rows="4" placeholder="Type your message here..."></textarea>
+                <button onclick="synthesizeSpeech()" class="theme-toggle-btn">🔊 Generate Speech</button>
+        </div>
+      </div>
+
+      <!-- Auth Modal -->
+      <div class="modal-overlay" id="authModal">
+        <div class="auth-modal">
+          <button class="close-btn" onclick="hideAuthModal()">×</button>
+          
+          <div class="auth-tabs">
+            <button onclick="switchAuthTab('login')" id="login-tab" class="active">Login</button>
+            <button onclick="switchAuthTab('register')" id="register-tab">Register</button>
+          </div>
+
+          <!-- Login Form -->
+          <div class="auth-form" id="login-form">
+            <input type="email" placeholder="Email" id="login-email" required>
+            <input type="password" placeholder="Password" id="login-password" required>
+            <button onclick="loginUser()">🔐 Login</button>
+          </div>
+
+          <!-- Register Form -->
+          <div class="auth-form hidden" id="register-form">
+            <input type="text" placeholder="Full Name" id="register-name" required>
+            <input type="email" placeholder="Email" id="register-email" required>
+            <input type="password" placeholder="Password" id="register-password" required>
+            <button onclick="registerUser()">📝 Register</button>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Main Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">RevoixAI</h3>
+      <p>Your personal AI voice companion — Clone, create, and communicate with the power of your own voice.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/revoixai"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>&copy; 2025</span> <strong class="px-1 sitename">RevoixAI</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          Designed by <a href="https://github.com/IamCOD3X">IamCOD3X</a> <strong>&</strong> <a href="https://github.com/Heena0-0">Heena0-0</a>
+        </div>
+        <div>
+          <a href="/termandconditions.html">Terms & Conditions</a> | <a href="">Privacy Policies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/themes.js"></script>
+  <script src="assets/js/studio.js"></script>
+
+</body>
+
+</html>
