@@ -76,20 +76,27 @@ async function loginUser(event) {
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
 
-  const res = await fetch('http://localhost:5000/api/auth/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-  });
+  try {
+    const res = await fetch(`${API_BASE}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if (res.ok) {
-    jwtToken = data.access_token;
-    hideAuthModal();
-    alert("🔐 Login successful!");
-  } else {
-    alert("❌ Login failed: " + data.error);
+    if (res.ok) {
+      jwtToken = data.access_token;
+      localStorage.setItem("jwt", jwtToken);
+      hideAuthModal();
+      updateUIAfterLogin(); // << THIS must be called
+      alert("🔐 Login successful!");
+    } else {
+      alert("❌ Login failed: " + data.error);
+    }
+  } catch (err) {
+    console.error("Login error:", err);
+    alert("Login failed. Check console for details.");
   }
 }
 
@@ -112,6 +119,23 @@ async function registerUser(event) {
   } else {
     alert("❌ Registration failed: " + data.error);
   }
+}
+
+
+// === UI UPDATE LOGIC ===
+function updateUIAfterLogin() {
+  console.log("✅ Updating UI for logged-in state");
+  document.getElementById("auth-nav").classList.add("hidden");
+  document.getElementById("user-controls").classList.remove("hidden");
+}
+
+// === LOGOUT LOGIC ===
+function logoutUser() {
+  jwtToken = null;
+  localStorage.removeItem("jwt");
+  document.getElementById("user-controls").classList.add("hidden");
+  document.getElementById("auth-nav").classList.remove("hidden");
+  alert("👋 You’ve been logged out.");
 }
 
 // === Modal and Tab Controls ===
@@ -141,3 +165,11 @@ function switchAuthTab(tab) {
     registerForm.classList.remove("hidden");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedToken = localStorage.getItem("jwt");
+  if (savedToken) {
+    jwtToken = savedToken;
+    updateUIAfterLogin();
+  }
+});

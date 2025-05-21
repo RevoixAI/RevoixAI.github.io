@@ -43,7 +43,18 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/index.html">Home</a></li>
-          <li><a href="#" onclick="event.preventDefault(); showAuthModal();">Login/Register</a></li>
+          <!-- Auth Button (shown when logged out) -->
+          <li id="auth-nav">
+            <a href="#" onclick="event.preventDefault(); showAuthModal();">🔐 Login/Register</a>
+          </li>
+
+          <!-- User Controls (shown when logged in) -->
+          <li id="user-controls" class="dropdown hidden"><a href="#"><span>👋 Welcome back!</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="">⚙️ Dashboard</a></li>
+                  <li><a href="" onclick="logoutUser()">🚪 Logout</a></li>
+                </ul>
+              </li>
           <li><button id="toggleTheme" class="theme-toggle-btn">🌙</button></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
