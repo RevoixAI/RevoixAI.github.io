@@ -117,18 +117,18 @@
           </div>
 
           <!-- Login Form -->
-          <div class="auth-form" id="login-form">
+          <form id="login-form" onsubmit="loginUser(event)">
             <input type="email" placeholder="Email" id="login-email" required>
             <input type="password" placeholder="Password" id="login-password" required>
-            <button onclick="loginUser()">🔐 Login</button>
-          </div>
+            <button type="submit">🔐 Login</button>
+          </form>
 
           <!-- Register Form -->
-          <div class="auth-form hidden" id="register-form">
+          <form id="register-form" onsubmit="registerUser(event)">
             <input type="text" placeholder="Full Name" id="register-name" required>
             <input type="email" placeholder="Email" id="register-email" required>
             <input type="password" placeholder="Password" id="register-password" required>
-            <button onclick="registerUser()">📝 Register</button>
+            <button type="submit">📝 Register</button>
           </div>
         </div>
       </div>
