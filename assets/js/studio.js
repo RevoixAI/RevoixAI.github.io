@@ -24,7 +24,7 @@ async function stopRecording() {
     formData.append('voice_sample', audioBlob, 'sample.wav');
 
     try {
-      const response = await fetch('http://localhost:5000/api/voice/upload', {
+     const response = await fetch(`${API_BASE}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${jwtToken}`
@@ -48,7 +48,7 @@ async function synthesizeSpeech() {
   const text = document.getElementById('text-input').value;
 
   try {
-    const response = await fetch('http://localhost:5000/api/voice/synthesize', {
+    const response = await fetch(`${API_BASE}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ async function registerUser(event) {
   const email = document.getElementById('register-email').value;
   const password = document.getElementById('register-password').value;
 
-  const res = await fetch('http://localhost:5000/api/auth/register', {
+  const res = await fetch(`${API_BASE}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
