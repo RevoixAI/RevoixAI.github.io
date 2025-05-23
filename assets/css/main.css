@@ -550,6 +550,19 @@
     flex: 1;
   }
 
+  .studio-btn {
+    position: relative;
+    top: 0px;
+    padding-left: 15px;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+
 
   /* Modal Overlay */
   .modal-overlay {
@@ -837,7 +850,7 @@
   .theme-toggle-btn {
     position: relative;
     top: 0px;
-    left: 60px;
+    left: 20px;
     padding-left: 15px;
     z-index: 999;
     background-color: var(--background-color);
