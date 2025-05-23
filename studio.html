@@ -45,7 +45,7 @@
           <li><a href="/index.html">Home</a></li>
           <!-- Auth Button (shown when logged out) -->
           <li id="auth-nav">
-            <a href="#" onclick="event.preventDefault(); showAuthModal();">🔐 Login/Register</a>
+            <a href="" onclick="event.preventDefault(); showAuthModal();">🔐 Login/Register</a>
           </li>
 
           <!-- User Controls (shown when logged in) -->
@@ -105,33 +105,9 @@
                 <button onclick="synthesizeSpeech()" class="studio-btn">🔊 Generate Speech</button>
         </div>
       </div>
+    </div>
 
-      <!-- Auth Modal -->
-      <div class="modal-overlay" id="authModal">
-        <div class="auth-modal">
-          <button class="close-btn" onclick="hideAuthModal()">×</button>
-          
-          <div class="auth-tabs">
-            <button onclick="switchAuthTab('login')" id="login-tab" class="active">Login</button>
-            <button onclick="switchAuthTab('register')" id="register-tab">Register</button>
-          </div>
-
-          <!-- Login Form -->
-          <form id="login-form" onsubmit="loginUser(event)">
-            <input type="email" placeholder="Email" id="login-email" required>
-            <input type="password" placeholder="Password" id="login-password" required>
-            <button type="submit">🔐 Login</button>
-          </form>
-
-          <!-- Register Form -->
-          <form id="register-form" onsubmit="registerUser(event)">
-            <input type="text" placeholder="Full Name" id="register-name" required>
-            <input type="email" placeholder="Email" id="register-email" required>
-            <input type="password" placeholder="Password" id="register-password" required>
-            <button type="submit">📝 Register</button>
-          </div>
-        </div>
-      </div>
+    <div id="auth-modal-container"></div>
 
     </section><!-- /Main Section -->
 
@@ -178,6 +154,7 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/themes.js"></script>
   <script src="assets/js/studio.js"></script>
+  <script src="assets/js/auth.js"></script>
 
 </body>
 

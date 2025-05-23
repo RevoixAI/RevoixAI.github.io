@@ -1,0 +1,28 @@
+<!-- Auth Modal -->
+<template id="auth-modal-template">
+  <div class="modal-overlay" id="authModal">
+    <div class="auth-modal">
+      <button class="close-btn" onclick="hideAuthModal()">×</button>
+
+      <div class="auth-tabs">
+        <button onclick="switchAuthTab('login')" id="login-tab" class="active">Login</button>
+        <button onclick="switchAuthTab('register')" id="register-tab">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="loginUser(event)">
+        <input type="email" placeholder="Email" id="login-email" required>
+        <input type="password" placeholder="Password" id="login-password" required>
+        <button type="submit">🔐 Login</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="register-form" class="hidden" onsubmit="registerUser(event)">
+        <input type="text" placeholder="Full Name" id="register-name" required>
+        <input type="email" placeholder="Email" id="register-email" required>
+        <input type="password" placeholder="Password" id="register-password" required>
+        <button type="submit">📝 Register</button>
+      </form>
+    </div>
+  </div>
+</template>

@@ -49,6 +49,18 @@
           <li><a href="#faq">FAQs</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- Auth Button (shown when logged out) -->
+          <li id="auth-nav">
+            <a href="/login" onclick="event.preventDefault(); showAuthModal();">🔐 Login/Register</a>
+          </li>
+
+          <!-- User Controls (shown when logged in) -->
+          <li id="user-controls" class="dropdown hidden"><a href="#"><span>👋 Welcome back!</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="">⚙️ Dashboard</a></li>
+              <li><a href="" onclick="logoutUser()">🚪 Logout</a></li>
+            </ul>
+          </li>
           <li><button id="toggleTheme" class="theme-toggle-btn">🌙</button></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -72,7 +84,7 @@
           <p class="animate__animated animate__fadeInUp">
             RevoixAI is your voice-powered content companion — clone your voice, convert text to speech, and speak fluently without ever recording again. Perfect for creators with mic anxiety or inconsistent delivery.
           </p>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Try Now</a>
+          <a href="./studio.html" class="btn-get-started animate__animated animate__fadeInUp scrollto">Try Now</a>
         </div>
       </div>
 
@@ -530,6 +542,8 @@
 
     </section><!-- /Contact Section -->
 
+    <div id="auth-modal-container"></div>
+
   </main>
 
   <footer id="footer" class="footer dark-background">
@@ -572,6 +586,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/themes.js"></script>
+  <script src="assets/js/auth.js"></script>
 
 </body>
 

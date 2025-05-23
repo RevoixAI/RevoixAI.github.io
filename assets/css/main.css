@@ -563,6 +563,13 @@
     transition: background 0.3s, color 0.3s;
   }
 
+/*--------------------------------------------------------------
+# Auth Modal
+--------------------------------------------------------------*/
+
+  #authModal {
+  display: none;
+  }
 
   /* Modal Overlay */
   .modal-overlay {
